@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at top, rgba(141, 183, 255, 0.1), transparent 24%),
+    linear-gradient(180deg, #050816 0%, #070d1d 36%, #050816 100%);
+  color: #f4f1ea;
+  font-family: var(--font-sans), sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.site-noise {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black 58%, transparent 100%);
+}
+
+.site-orbit {
+  position: fixed;
+  width: 44rem;
+  height: 44rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(141, 183, 255, 0.09);
+  pointer-events: none;
+  filter: blur(0.3px);
+}
+
+.site-orbit::before,
+.site-orbit::after {
+  content: "";
+  position: absolute;
+  inset: 14%;
+  border-radius: inherit;
+  border: 1px solid rgba(244, 241, 234, 0.05);
+}
+
+.site-orbit::after {
+  inset: 31%;
+}
+
+.site-orbit-left {
+  top: -18rem;
+  left: -18rem;
+}
+
+.site-orbit-right {
+  right: -20rem;
+  top: 12rem;
+}
+
+.section-shell {
+  position: relative;
+  margin-inline: auto;
+  width: min(100% - 1.5rem, 1180px);
+}
+
+.section-grid {
+  position: relative;
+}
+
+.section-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(141, 183, 255, 0.2), transparent);
+  opacity: 0.55;
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(244, 241, 234, 0.09);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03)),
+    rgba(6, 11, 24, 0.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 24px 60px rgba(3, 8, 24, 0.4);
+  backdrop-filter: blur(16px);
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(141, 183, 255, 0.08), transparent 35%),
+    linear-gradient(315deg, rgba(255, 255, 255, 0.035), transparent 42%);
+  pointer-events: none;
+}
+
+.flint-cut {
+  clip-path: polygon(0 0, 92% 0, 100% 12%, 100% 100%, 8% 100%, 0 88%);
+}
+
+.flint-outline {
+  clip-path: polygon(8% 0, 92% 0, 100% 14%, 100% 84%, 88% 100%, 0 100%, 0 10%);
+}
+
+.text-ice {
+  background: linear-gradient(135deg, #f4f1ea 0%, #b8cbff 40%, #8db7ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-kicker {
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(151, 166, 196, 0.8);
+}
+
+.connector-line {
+  position: relative;
+}
+
+.connector-line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1.1rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(141, 183, 255, 0.06), rgba(141, 183, 255, 0.55), rgba(141, 183, 255, 0.06));
+}
+
+.connector-dot {
+  position: absolute;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 9999px;
+  background: #8db7ff;
+  box-shadow: 0 0 20px rgba(141, 183, 255, 0.7);
+}
+
+.dashboard-glow {
+  position: absolute;
+  inset: auto 10% 0 auto;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(141, 183, 255, 0.16), transparent 64%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.metric-value {
+  font-family: var(--font-display), serif;
+  font-size: clamp(2rem, 2vw, 2.6rem);
+  line-height: 0.95;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(141, 183, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 183, 255, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@media (max-width: 767px) {
+  .site-orbit {
+    width: 28rem;
+    height: 28rem;
+  }
+
+  .site-orbit-left {
+    left: -14rem;
+    top: -10rem;
+  }
+
+  .site-orbit-right {
+    right: -14rem;
+    top: 18rem;
+  }
+}
