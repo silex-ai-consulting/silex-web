@@ -38,6 +38,7 @@ export function FinalCTA() {
         throw new Error("Completa nombre, correo y objetivo principal.");
       }
 
+      // TODO: Conectar este diagnóstico con Firebase Firestore en la siguiente fase.
       await new Promise((resolve) => setTimeout(resolve, 500));
 
       setMessage(
