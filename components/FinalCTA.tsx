@@ -34,27 +34,21 @@ export function FinalCTA() {
     setMessage("");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(form)
-      });
-
-      const result = (await response.json()) as { ok: boolean; message: string };
-
-      if (!response.ok || !result.ok) {
-        throw new Error(result.message);
+      if (!form.name || !form.email || !form.needs) {
+        throw new Error("Completa nombre, correo y objetivo principal.");
       }
 
-      setMessage(result.message);
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      setMessage(
+        "Diagnóstico listo. Este formulario queda preparado para conectar un servicio externo cuando se necesite."
+      );
       setForm(initialState);
     } catch (submissionError) {
       setError(
         submissionError instanceof Error
           ? submissionError.message
-          : "No fue posible enviar el diagnóstico."
+          : "No fue posible registrar el diagnóstico."
       );
     } finally {
       setIsSubmitting(false);
@@ -66,7 +60,7 @@ export function FinalCTA() {
       <div className="section-shell">
         <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-stretch">
           <SectionReveal className="panel flint-cut flex flex-col rounded-[2rem] p-6 sm:p-8">
-            <div className="rounded-full border border-[#8DB7FF]/18 bg-[#8DB7FF]/8 p-3 text-[#8DB7FF] w-fit">
+            <div className="w-fit rounded-full border border-[#8DB7FF]/18 bg-[#8DB7FF]/8 p-3 text-[#8DB7FF]">
               <CalendarDays size={18} />
             </div>
             <div className="mt-8">
@@ -83,7 +77,10 @@ export function FinalCTA() {
                 "Oportunidades de automatización",
                 "Ruta inicial de mejora"
               ].map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm text-steel">
+                <div
+                  key={item}
+                  className="flex items-start gap-3 rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 text-sm text-steel"
+                >
                   <CircleCheckBig size={18} className="mt-0.5 shrink-0 text-[#8DB7FF]" />
                   <span>{item}</span>
                 </div>
@@ -105,7 +102,7 @@ export function FinalCTA() {
                   </h3>
                 </div>
                 <div className="hidden rounded-full border border-white/10 px-4 py-2 text-xs text-steel sm:block">
-                  API route preparada
+                  Static export listo
                 </div>
               </div>
 
