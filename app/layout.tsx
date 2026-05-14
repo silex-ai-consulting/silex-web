@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import "@fontsource/cormorant-garamond/400.css";
-import "@fontsource/cormorant-garamond/500.css";
-import "@fontsource/cormorant-garamond/600.css";
-import "@fontsource/cormorant-garamond/700.css";
-import "@fontsource/manrope/400.css";
-import "@fontsource/manrope/500.css";
-import "@fontsource/manrope/600.css";
-import "@fontsource/manrope/700.css";
-import "@fontsource/manrope/800.css";
+import { GeistSans } from "geist/font/sans";
+import "@fontsource/instrument-serif/400.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -24,7 +17,12 @@ export const metadata: Metadata = {
     "estrategia digital"
   ],
   icons: {
-    icon: "/icon.svg"
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/isotipo-silex.svg", type: "image/svg+xml" }
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png"
   },
   openGraph: {
     title: "SILEX | IA, Web y Automatización",
@@ -40,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" className={GeistSans.variable}>
       <body>{children}</body>
     </html>
   );
