@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "@fontsource/instrument-serif/400.css";
+import { assetPath } from "@/lib/asset-path";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,11 +19,11 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/isotipo-silex.svg", type: "image/svg+xml" }
+      { url: assetPath("/favicon.ico") },
+      { url: assetPath("/isotipo-silex.svg"), type: "image/svg+xml" }
     ],
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png"
+    shortcut: assetPath("/favicon.ico"),
+    apple: assetPath("/apple-touch-icon.png")
   },
   openGraph: {
     title: "SILEX | IA, Web y Automatización",
